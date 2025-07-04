@@ -965,7 +965,9 @@ void OpenGameDir(QWidget *parent, bool newgame)
     QString title("Open game");
     if (newgame)
         title = "New game";
-    QString dir = QFileDialog::getExistingDirectory(parent, title);
+    QString dir = QFileDialog::getExistingDirectory(parent,
+                                                    title, QDir::homePath(),
+                                                    QFileDialog::ShowDirsOnly | QFileDialog::DontUseNativeDialog);
     if (dir.isNull())
         return;
 
